@@ -1,46 +1,51 @@
 # Iron Hunters · Cascais
 
-Planeador para sábado, 17/10/2026. Os comboios usam o horário CP de fim de semana em vigor desde 28/09/2026; as passagens do atleta e as caminhadas são estimativas.
+Planeador para sábado, 17/10/2026. CP usa o horário de fim de semana em vigor desde 28/09/2026. GPX e distâncias são referências de 2024; caminhadas e alternativas externas são manuais.
 
-## Funcionalidades
+## Sentidos de viagem
 
-- Melhor estação em destaque, com origem/destino e horários de cada etapa.
-- Explicação dos resultados inviáveis (passagem perdida, margem insuficiente ou falta de serviço ferroviário).
-- Consulta de caminhadas estação ↔ ponto GPX em Google Maps, com aviso de acesso não validado.
-- Comparação da velocidade escolhida com cenários de ±2,5 km/h.
-- Modo prova com horários essenciais em letra maior.
-- Partilha por URL com hora, velocidade, caminhada e modo de apresentação.
-- Fontes oficiais, data da verificação e ilustrações SVG de triatlo.
-- Mapa GPX de 2024, tabela 10h30–11h30 e impressão / PDF.
+- Só ida: Biarritz → ponto GPX, com pelo menos 3 minutos antes do atleta. Não testa o regresso.
+- Só volta: escolhe o ponto em que estás e a hora em que estás livre para sair. Exige 5 minutos de margem em Cascais e ignora a ida.
+- Ida e volta: exige ambas as margens.
 
-## Cópia anterior
+A recomendação escolhe a chegada mais cedo ao destino relevante entre as alternativas viáveis avaliadas. Não pesquisa automaticamente toda a rede de transportes nem garante o mais rápido no terreno.
 
-A versão anterior às melhorias está preservada na branch [backup-before-enhancements-2026-10-14](https://github.com/mendesmaya/project-cascais-ironman/tree/backup-before-enhancements-2026-10-14).
+## Comparar percursos
 
-O ficheiro original enviado, com horários simulados, permanece intacto em `original/ironman_cascais_planeador.html`.
+Em “Testar percursos”, consulta a pé ou em qualquer transporte público no Google Maps / operador. Define 17/10/2026 e a hora no serviço externo; o link não aplica essa data/hora automaticamente.
 
-## Precisão
+Insere tipo, descrição, saída e chegada no mesmo dia, incluindo esperas, transbordos e caminhadas. Ida: Biarritz → ponto GPX. Volta: ponto GPX → estação de Cascais. O site acrescenta a caminhada final até ao ponto do atleta para comparar o mesmo destino.
 
-- Ida: estação do Estoril → estação selecionada.
-- Regresso: estação selecionada → estação de Cascais.
-- `Pronto em Cascais` inclui 10 minutos manuais a pé depois de sair do comboio.
-- Uma opção viável exige pelo menos 3 minutos antes da passagem no ponto e 5 minutos de margem em Cascais.
-- O tempo de caminhada é global e manual: Biarritz → Estoril e cada sentido estação ↔ ponto. Pode ser ajustado entre 1 e 60 minutos. O Google Maps não transfere tempos automaticamente para o planeador.
-- Os pontos e distâncias são referências aproximadas do HTML original / GPX de 2024. Não são acessos pedonais validados para a prova de 2026. Consulta os condicionamentos locais antes de seguir direções.
-- Só se calculam viagens integralmente ferroviárias. Os autocarros de substituição noturnos não estão incluídos.
-- A verificação de 14/10/2026 não encontrou aviso específico para a manhã da prova; a CP prevê substituição rodoviária Caxias ↔ Cascais a partir das 20h50 aos sábados.
-- Não há consulta em tempo real, previsão de atrasos nem atualização automática dos horários.
+Os tempos CP são calculados. Outras alternativas são dados inseridos pelo utilizador após consulta e confirmação. Podem ser combinadas com CP em sentidos diferentes. São rejeitadas as linhas municipais suprimidas no aviso MobiCascais de 17/10 quando identificadas na descrição.
 
-Fontes:
+Há caminhadas separadas: Biarritz → Estoril, estação ↔ ponto (global ou por estação), estação Cascais → ponto do atleta. Os acessos exatos ao GPX não estão validados.
+
+## Guia
+
+[Guia de utilização PDF, com exemplos e testes](reports/guia_iron_hunters.pdf).
+
+## Testes
+
+`node tests/planner.test.js` ou `npm test`, sem dependências. Verificados 5.280 casos de estação/sentido e 3.600 valores de regressão CP contra a versão anterior. Exemplos oficiais de horários, limites de serviço, sentidos, rejeição de linhas suprimidas, comparação multimodal sintética, partilha e interações principais.
+
+Os testes de software não medem trajetos reais. Dados sintéticos multimodais não são horários reais de autocarros ou tempos de caminhada.
+
+## Fontes
 
 - https://www.cp.pt/info/documents/d/cp/comboios-urbanos-lisboa-cascais-1
 - https://www.cp.pt/info/w/linha-de-cascais-servico-rodoviario
+- https://mobi.cascais.pt/aviso/ironman-2026-alteracoes-nas-linhas-municipais
+- https://carrismetropolitana.pt/alerts
 - https://www.cascais.pt/aviso/condicionamentos-de-transito-ironman-2026
 
-## Abrir e verificar
+Verificação documental em 14/10/2026. CP anuncia serviço rodoviário de substituição Caxias ↔ Cascais a partir das 20h50 aos sábados, excluído do cálculo CP automático. MobiCascais publica supressões e desvios específicos para 17/10. Confirma os avisos antes de sair.
 
-Abre `index.html` ou serve a pasta com `python -m http.server 8000`. Fontes, Leaflet e mosaicos OpenStreetMap precisam de Internet; os cálculos e as ligações pedonais funcionam se o mapa não carregar.
+## Cópias anteriores
 
-Com Node instalado, executa `node tests/planner.test.js` ou `npm test`. Não há dependências a instalar nem compilação. Os testes cobrem exemplos do horário CP, limites do serviço ferroviário, recomendações, partilha, sentidos dos links pedonais e interações principais.
+- `backup-before-enhancements-2026-10-14`: versão anterior às melhorias.
+- `backup-before-route-modes-2026-10-14`: versão anterior aos sentidos e alternativas.
+- `original/ironman_cascais_planeador.html`: HTML original intacto, com horários simulados antigos.
 
-GitHub Pages: Settings → Pages → Deploy from a branch → main → /(root).
+## Abrir
+
+Abre `index.html` ou serve a pasta com `python -m http.server 8000`. Fontes e mapa precisam de Internet. GitHub Pages: main / raiz. GitHub e Sites não se sincronizam automaticamente.

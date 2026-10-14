@@ -1,1 +1,1 @@
-{"name":"iron-hunters-cascais","private":true,"version":"2.0.0","scripts":{"test":"node tests/planner.test.js"}}
+{"name": "iron-hunters-cascais", "private": true, "version": "3.0.0", "scripts": {"test": "node tests/planner.test.js"}}
