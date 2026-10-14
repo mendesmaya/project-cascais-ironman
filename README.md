@@ -1,6 +1,6 @@
 # cascais-ironman
 
-Race Day · Cascais — planeador interativo para acompanhar um atleta.
+Iron Hunters · Cascais — planeador interativo para acompanhar um atleta.
 
 ## Funcionalidades
 
