@@ -16,3 +16,5 @@ body{position:relative}header,main{position:relative;z-index:1}.sport-doodles{po
 .settings,.map-panel,.options{background:rgba(255,254,248,.88)}
 }
 @media print{.sport-doodles{display:none}}
+
+.doodle{font-size:clamp(44px,5vw,72px)}@media(max-width:760px){.doodle{font-size:58px}}.notice a{text-decoration:underline;text-underline-offset:2px}
