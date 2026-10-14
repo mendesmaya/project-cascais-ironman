@@ -18,3 +18,5 @@ body{position:relative}header,main{position:relative;z-index:1}.sport-doodles{po
 @media print{.sport-doodles{display:none}}
 
 .doodle{font-size:clamp(44px,5vw,72px)}@media(max-width:760px){.doodle{font-size:58px}}.notice a{text-decoration:underline;text-underline-offset:2px}
+
+.doodle{font-size:clamp(64px,7vw,104px)}@media(max-width:760px){.doodle{font-size:82px}}
