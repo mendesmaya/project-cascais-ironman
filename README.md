@@ -1,26 +1,21 @@
-# cascais-ironman
+# Iron Hunters · Cascais
 
-Iron Hunters · Cascais — planeador interativo para acompanhar um atleta.
+Design renovado com as funcionalidades do HTML original: hora de passagem em Biarritz, velocidade média, tempo de caminhada, comparação das cinco estações, mapa GPX de 2024, tabela de cenários 10h30–11h30 e impressão / PDF.
 
-## Funcionalidades
+O JavaScript dos cálculos e das interações foi reposto a partir do HTML original. Não inclui itinerário editável, pausas, margem configurável nem armazenamento local.
 
-- Estimativas de passagem, mapa GPX e comparação de estações.
-- Itinerário com paragens reordenáveis, deslocações e pausas ajustáveis.
-- Plano guardado neste navegador e impressão / PDF.
-- Ilustrações de triatlo na página inicial.
+## Abrir
 
-## Abrir no computador
-
-Descarrega o repositório e abre `index.html` no navegador, ou serve a pasta com `python -m http.server 8000`. As fontes, o mapa e os mosaicos OpenStreetMap necessitam de Internet.
+Abre `index.html` no navegador ou serve a pasta com `python -m http.server 8000`. As fontes e o mapa necessitam de Internet.
 
 ## Ficheiro original
 
-O HTML originalmente enviado está guardado sem alterações em `original/ironman_cascais_planeador.html`, também acessível pelo rodapé do site.
+`original/ironman_cascais_planeador.html` contém o ficheiro original intacto.
 
 ## Estimativas
 
-Os horários ferroviários são simulados e não correspondem a consulta à CP. O GPX é de 2024; confirma percurso e acessos da edição que vais acompanhar.
+Os comboios são simulados e não correspondem a consulta à CP. Confirma os horários, o percurso e os acessos da tua edição.
 
-## GitHub Pages
+## Publicação
 
-Em Settings → Pages, seleciona Deploy from a branch, `main` e `/(root)`.
+GitHub Pages: Settings → Pages → Deploy from a branch → main → /(root).
