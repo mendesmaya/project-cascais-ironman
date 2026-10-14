@@ -4,40 +4,23 @@ Race Day · Cascais — planeador interativo para acompanhar um atleta.
 
 ## Funcionalidades
 
-- Estimativas de passagem a partir da hora em Biarritz e velocidade média.
-- Itinerário com paragens reordenáveis, deslocações e pausas editáveis.
-- Comparação de estações e alertas de margem insuficiente.
-- Mapa do percurso GPX de 2024 e paragens selecionadas.
-- Plano guardado em localStorage neste navegador.
-- Impressão / guardar como PDF através do navegador.
+- Estimativas de passagem, mapa GPX e comparação de estações.
+- Itinerário com paragens reordenáveis, deslocações e pausas ajustáveis.
+- Plano guardado neste navegador e impressão / PDF.
+- Ilustrações de triatlo na página inicial.
 
 ## Abrir no computador
 
-Descarrega o repositório e abre `index.html` no navegador. Não é necessário instalar dependências nem compilar.
+Descarrega o repositório e abre `index.html` no navegador, ou serve a pasta com `python -m http.server 8000`. As fontes, o mapa e os mosaicos OpenStreetMap necessitam de Internet.
 
-Também podes abrir a pasta no VS Code e usar Live Server. Com Python instalado, executa na pasta:
+## Ficheiro original
 
-```sh
-python -m http.server 8000
-```
-
-Depois abre http://localhost:8000.
-
-## Ficheiros
-
-- `index.html`: estrutura e conteúdo.
-- `style.css`: estilos e adaptação a telemóveis.
-- `app.js`: cálculos, interações e armazenamento local.
-- `track.js`: coordenadas do percurso fornecido no HTML original.
-
-Leaflet, os mosaicos OpenStreetMap e Google Fonts precisam de ligação à Internet. Os cálculos funcionam sem o mapa.
+O HTML originalmente enviado está guardado sem alterações em `original/ironman_cascais_planeador.html`, também acessível pelo rodapé do site.
 
 ## Estimativas
 
-Os horários ferroviários são simulados, com cadência de 20 minutos, e não correspondem a uma consulta à CP. As deslocações entre paragens são tempos manuais editáveis. O traçado é de 2024: confirma o percurso, os acessos e os horários da edição que vais acompanhar.
+Os horários ferroviários são simulados e não correspondem a consulta à CP. O GPX é de 2024; confirma percurso e acessos da edição que vais acompanhar.
 
-## Publicação
+## GitHub Pages
 
-Este é um site estático e pode ser alojado no GitHub Pages ou noutro alojamento estático. Para GitHub Pages, seleciona a branch `main` e a pasta `/ (root)` em Settings → Pages. A ativação do Pages não é feita por este commit.
-
-A versão criada no Sites está em https://cascais-race-day-maya.royaltetra128.chatgpt.site (acesso privado). Este repositório contém uma cópia do código; alterações no GitHub e no Sites não são sincronizadas automaticamente.
+Em Settings → Pages, seleciona Deploy from a branch, `main` e `/(root)`.
